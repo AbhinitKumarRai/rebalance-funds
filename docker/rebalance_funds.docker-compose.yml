@@ -1,0 +1,22 @@
+#!/bin/bash
+version: "3.6"
+networks:
+  abhinitnetwork:
+    name: abhinitnetwork
+    driver: bridge
+services:
+  rebalance-funds-api:
+    container_name: rebalance-funds-api
+    build:
+      context: ../
+      # # uncomment to run in debug mode
+      # dockerfile: Dockerfile.debug
+      # uncomment to run in release mode
+      dockerfile: Dockerfile
+
+    ports:
+      - 9000:9000
+    networks:
+      - abhinitnetwork
+    env_file:
+      - rebalance-funds.env

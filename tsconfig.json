@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "moduleResolution": "NodeNext",
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "outDir": "build",
+    "noImplicitAny": false,
+    "strict": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "ts-node": {
+    "esm": true
+  },
+  "exclude": [
+    "./build"
+  ],
+  "lib": [
+    "es2015"
+  ]
+}
