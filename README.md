@@ -46,7 +46,7 @@ Its a `POST` request ENDPOINT which withdraws tokens from Mantle Sepolia Chain t
 {
   "token": "MNT", // Supported tokens are: ETH, MNT
   "private_key": "wallet private key",
-  "amount": "1" // should be in ETH or MN
+  "amount": "1" // should be in ETH or MNT
 }
 ```
 
