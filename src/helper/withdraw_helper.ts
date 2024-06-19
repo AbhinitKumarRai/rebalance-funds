@@ -44,8 +44,6 @@ export async function withdrawETH(
     const errorCode = handleError(err, ERROR_CODE.WITHDRAW_FAILED);
     throw generateError(errorCode);
   }
-  console.log(`Waiting for Transaction to initiate`);
-  await response.wait();
   checkAndFinalizeWithdrawTxn(response, crossChainMessenger);
 
   return {
@@ -75,8 +73,6 @@ export async function withdrawMNT(
     const errorCode = handleError(err, ERROR_CODE.WITHDRAW_FAILED);
     throw generateError(errorCode);
   }
-  console.log(`Waiting for Transaction to initiate`);
-  await response.wait();
 
   checkAndFinalizeWithdrawTxn(response, crossChainMessenger);
 
@@ -87,7 +83,9 @@ export async function withdrawMNT(
 }
 
 const checkAndFinalizeWithdrawTxn = async (response, crossChainMessenger) => {
-  await new Promise((resolve) => setTimeout(resolve, 20000));
+  await new Promise((resolve) => setTimeout(resolve, 10000));
+  console.log(`Waiting for Transaction to initiate`);
+  await response.wait();
 
   await crossChainMessenger.waitForMessageStatus(
     response.hash,
