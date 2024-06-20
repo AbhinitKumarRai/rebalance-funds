@@ -5,7 +5,7 @@ Currently ETH tokens and Mantle tokens transfer is only supported
 
 ## INITIAL SETUP
 
-1. Install nodejs with version 20.14.0
+1. Install nodejs with version 20.14.0 and run `npm i` to install dependencies
 
 2. Download and Install Docker Engine if not already installed
 
