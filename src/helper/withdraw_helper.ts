@@ -34,7 +34,7 @@ export async function withdrawETH(
     const errorCode = handleError(err, ERROR_CODE.APPROVE_TXN_FAILED);
     throw generateError(errorCode);
   }
-  await approveTx.wait();
+  // await approveTx.wait();
 
   let response;
   try {
