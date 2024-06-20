@@ -19,6 +19,7 @@ export const ERROR_CODE = {
   APPROVE_TXN_FAILED: 10004,
   ANOTHER_TRANSACTION_ALREADY_IN_PROCESS: 10005,
   EXCEEDS_BLOCK_GAS_LIMIT: 10006,
+  REPLACEMENT_TRANSACTION_WITH_LOW_GAS_FEE: 10007,
   INTERNAL_SERVER_ERROR: 500,
 } as const;
 
@@ -32,6 +33,7 @@ export const ERROR_CODE_DESCRIPTION: { [key in ErrorCode]: string } = {
   10004: "approve txn request failed",
   10005: "Another transaction is already in process",
   10006: "Exceeds block gas limit",
+  10007: "Replacement transaction with low gas fees",
   500: "Internal server error",
 };
 
@@ -53,6 +55,10 @@ export function handleError(err, genericerrorCode): ErrorCode {
       return ERROR_CODE.ANOTHER_TRANSACTION_ALREADY_IN_PROCESS;
     } else if (errorDetails.message.includes("exceeds block gas limit")) {
       return ERROR_CODE.EXCEEDS_BLOCK_GAS_LIMIT;
+    } else if (
+      errorDetails.message.includes("replacement transaction underpriced")
+    ) {
+      return ERROR_CODE.DUPLICATE_TRANSACTION_WITH_LOW_GAS;
     } else {
       return genericerrorCode;
     }

@@ -86,7 +86,7 @@ export async function withdrawMNT(
 }
 
 const checkAndFinalizeWithdrawTxn = async (response, crossChainMessenger) => {
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  await new Promise((resolve) => setTimeout(resolve, 5000));
   console.log(`Waiting for Transaction to initiate`);
   await response.wait();
 
