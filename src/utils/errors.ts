@@ -58,7 +58,7 @@ export function handleError(err, genericerrorCode): ErrorCode {
     } else if (
       errorDetails.message.includes("replacement transaction underpriced")
     ) {
-      return ERROR_CODE.DUPLICATE_TRANSACTION_WITH_LOW_GAS;
+      return ERROR_CODE.REPLACEMENT_TRANSACTION_WITH_LOW_GAS_FEE;
     } else {
       return genericerrorCode;
     }
