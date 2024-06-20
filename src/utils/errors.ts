@@ -17,6 +17,8 @@ export const ERROR_CODE = {
   DEPOSIT_FAILED: 10002,
   WITHDRAW_FAILED: 10003,
   APPROVE_TXN_FAILED: 10004,
+  ANOTHER_TRANSACTION_ALREADY_IN_PROCESS: 10005,
+  EXCEEDS_BLOCK_GAS_LIMIT: 10006,
   INTERNAL_SERVER_ERROR: 500,
 } as const;
 
@@ -28,6 +30,8 @@ export const ERROR_CODE_DESCRIPTION: { [key in ErrorCode]: string } = {
   10002: "Deposit Failed",
   10003: "Withdraw Failed",
   10004: "approve txn request failed",
+  10005: "Another transaction is already in process",
+  10006: "Exceeds block gas limit",
   500: "Internal server error",
 };
 
@@ -43,6 +47,12 @@ export function handleError(err, genericerrorCode): ErrorCode {
       return ERROR_CODE.INTRINSIC_GAS_TOO_LOW;
     } else if (errorDetails.message.includes("insufficient funds")) {
       return ERROR_CODE.INSUFFICIENT_FUNDS;
+    } else if (
+      errorDetails.message.includes("transaction would cause overdraft")
+    ) {
+      return ERROR_CODE.ANOTHER_TRANSACTION_ALREADY_IN_PROCESS;
+    } else if (errorDetails.message.includes("exceeds block gas limit")) {
+      return ERROR_CODE.ANOTHER_TRANSACTION_ALREADY_IN_PROCESS;
     } else {
       return genericerrorCode;
     }

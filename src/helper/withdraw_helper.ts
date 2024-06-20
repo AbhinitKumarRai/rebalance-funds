@@ -27,9 +27,10 @@ export async function withdrawETH(
       ethers.constants.AddressZero,
       environment.l2Eth,
       eth,
-      { signer: l2Wallet, overrides }
+      { overrides }
     );
   } catch (err) {
+    console.log(err);
     const errorCode = handleError(err, ERROR_CODE.APPROVE_TXN_FAILED);
     throw generateError(errorCode);
   }
@@ -41,6 +42,7 @@ export async function withdrawETH(
       overrides,
     });
   } catch (err) {
+    console.log(err);
     const errorCode = handleError(err, ERROR_CODE.WITHDRAW_FAILED);
     throw generateError(errorCode);
   }
@@ -70,6 +72,7 @@ export async function withdrawMNT(
       overrides,
     });
   } catch (err) {
+    console.log(err);
     const errorCode = handleError(err, ERROR_CODE.WITHDRAW_FAILED);
     throw generateError(errorCode);
   }

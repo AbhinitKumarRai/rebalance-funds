@@ -26,6 +26,7 @@ export async function depositETH(
       overrides: { gasLimit: environment.ethGasLimit },
     });
   } catch (err) {
+    console.log(err);
     const errorCode = handleError(err, ERROR_CODE.DEPOSIT_FAILED);
     throw generateError(errorCode);
   }
@@ -70,6 +71,7 @@ export async function depositMNT(
       totalMNT.toString()
     );
   } catch (err) {
+    console.log(err);
     const errorCode = handleError(err, ERROR_CODE.APPROVE_TXN_FAILED);
     throw generateError(errorCode);
   }
@@ -81,6 +83,7 @@ export async function depositMNT(
       overrides: { gasLimit: environment.ethGasLimit },
     });
   } catch (err) {
+    console.log(err);
     const errorCode = handleError(err, ERROR_CODE.DEPOSIT_FAILED);
     throw generateError(errorCode);
   }
