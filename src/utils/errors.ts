@@ -52,7 +52,7 @@ export function handleError(err, genericerrorCode): ErrorCode {
     ) {
       return ERROR_CODE.ANOTHER_TRANSACTION_ALREADY_IN_PROCESS;
     } else if (errorDetails.message.includes("exceeds block gas limit")) {
-      return ERROR_CODE.ANOTHER_TRANSACTION_ALREADY_IN_PROCESS;
+      return ERROR_CODE.EXCEEDS_BLOCK_GAS_LIMIT;
     } else {
       return genericerrorCode;
     }

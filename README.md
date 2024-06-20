@@ -5,9 +5,11 @@ Currently ETH tokens and Mantle tokens transfer is only supported
 
 ## INITIAL SETUP
 
-1. Download and Install Docker Engine if not already installed
+1. Install nodejs with version 20.14.0
 
-2. Run command `make rebalance-funds` to up docker image and create local server
+2. Download and Install Docker Engine if not already installed
+
+3. Run command `make rebalance-funds` to up docker image and create local server
 
 ## ENDPOINTS INFO
 
