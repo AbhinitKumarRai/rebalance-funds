@@ -9,7 +9,26 @@ Currently ETH tokens and Mantle tokens transfer is only supported
 
 2. Download and Install Docker Engine if not already installed
 
-3. Run command `make rebalance-funds` to up docker image and create local server
+3. Make sure you have a `.env` file with all required environment variables
+
+4. Run command `make rebalance-funds` to:
+   - Build the Docker image
+   - Run the container with the application
+   - The service will be available at `http://localhost:8080`
+
+## Development
+
+### Local Development
+To run the application locally without Docker:
+```bash
+go run main.go
+```
+
+### Docker Development
+To build and run the application using Docker:
+```bash
+make rebalance-funds
+```
 
 ## ENDPOINTS INFO
 

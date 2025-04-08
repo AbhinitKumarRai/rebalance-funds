@@ -29,15 +29,6 @@ func main() {
 		}).HandlerFunc(c.Writer, c.Request)
 	})
 
-	// Basic health check endpoint
-	router.GET("/", func(c *gin.Context) {
-		c.String(200, "API Working!")
-	})
-
-	// API routes
-	_ = router.Group("/api") // Using underscore to indicate we're intentionally not using this variable yet
-	// TODO: Add your API routes here
-
 	// Start server
 	port := os.Getenv("PORT")
 	if port == "" {
