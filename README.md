@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# rebalance-funds
-=======
 # REBALANCE FUNDS SERVICE
 
 It will help in bridging tokens from Eth Sepolia to Mantle Sepolia and vice versa on same Wallet Address.
@@ -66,4 +63,3 @@ Its a `POST` request ENDPOINT which withdraws tokens from Mantle Sepolia Chain t
 ```
 
 #### NOTE: Since we are depositing to Eth Sepolia chain from Mantle using this endpoint, it make several hours before the transaction reaches terminal state
->>>>>>> 8b8d15ad (added readme)
